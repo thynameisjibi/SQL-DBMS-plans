@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#issue-2-phase-11-full-type-and-constraint-checking" class="md-skip">
+        <a href="#issue-2-phase-11-full-type-constraint-checking" class="md-skip">
           Skip to content
         </a>
       
@@ -417,6 +417,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Implementation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-enhance-is_valid_type-in-utilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Enhance is_valid_type() in utils.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-insert-in-dbmspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Update insert() in dbms.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -428,13 +467,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Test Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#risks" class="md-nav__link">
+  <a href="#risks-mitigations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Risks
+        Risks &amp; Mitigations
       
     </span>
   </a>
@@ -620,6 +698,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Implementation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-enhance-is_valid_type-in-utilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Enhance is_valid_type() in utils.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-insert-in-dbmspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Update insert() in dbms.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -631,13 +748,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Test Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#risks" class="md-nav__link">
+  <a href="#risks-mitigations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Risks
+        Risks &amp; Mitigations
       
     </span>
   </a>
@@ -689,20 +845,23 @@
 
 
 
-<h1 id="issue-2-phase-11-full-type-and-constraint-checking">Issue #2: Phase 1.1: Full Type and Constraint Checking</h1>
+<h1 id="issue-2-phase-11-full-type-constraint-checking">Issue #2: Phase 1.1: Full Type &amp; Constraint Checking</h1>
 <h2 id="summary">Summary</h2>
-<p>Enhance INSERT validation in the SQL-DBMS to strictly enforce data types, NOT NULL constraints, CHAR(N) length limits, and date format validation.</p>
+<p>Enhance INSERT validation in the SQL-DBMS to strictly enforce data types, NOT NULL constraints, CHAR(N) length limits, and date format validation with proper error handling.</p>
 <h2 id="root-cause-analysis">Root Cause Analysis</h2>
-<p>Current is_valid_type() in utils.py has gaps:
-1. Accepts booleans as integers (Python bool is subclass of int)
-2. No CHAR(N) length validation - silent truncation
-3. Weak date validation - accepts 2023-13-25
-4. Generic error messages</p>
+<p>The current <code>is_valid_type()</code> function in <code>utils.py</code> (lines 58-69) has critical gaps:</p>
+<ol>
+<li><strong>Boolean-as-integer bug</strong>: Python bool is subclass of int, so <code>isinstance(True, int)</code> returns True</li>
+<li><strong>No CHAR(N) length validation</strong>: Values exceeding limits are silently truncated instead of rejected</li>
+<li><strong>Weak date validation</strong>: Regex accepts invalid dates like 2023-13-25</li>
+<li><strong>Generic errors</strong>: InsertTypeMismatchError provides no specifics</li>
+</ol>
 <h2 id="proposed-solution">Proposed Solution</h2>
 <ol>
-<li>Reject booleans for INT</li>
-<li>Validate CHAR(N) length before insertion  </li>
-<li>Strict date validation (month 01-12, day 01-31)</li>
+<li>Reject booleans for INT columns explicitly</li>
+<li>Validate CHAR(N) length before insertion (not truncate after)</li>
+<li>Strict date validation: month 01-12, day 01-31</li>
+<li>Preserve existing NOT NULL checks in dbms.py lines 164-165</li>
 </ol>
 <h2 id="files-to-modify">Files to Modify</h2>
 <table>
@@ -719,23 +878,69 @@
 </tr>
 <tr>
 <td>dbms.py</td>
-<td>Move CHAR validation before type check</td>
+<td>Add CHAR length validation before line 167, remove truncation lines 174-176</td>
 </tr>
 </tbody>
 </table>
 <h2 id="implementation-steps">Implementation Steps</h2>
-<ol>
-<li>Enhance is_valid_type() in utils.py</li>
-<li>Update insert() in dbms.py  </li>
-<li>Test changes</li>
-</ol>
+<h3 id="step-1-enhance-is_valid_type-in-utilspy">Step 1: Enhance is_valid_type() in utils.py</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_type</span><span class="p">(</span><span class="n">valid_type</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">valid_type</span> <span class="o">==</span> <span class="s2">"int"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">valid_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"char"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">max_len</span> <span class="o">=</span> <span class="n">eval_char_max_len</span><span class="p">(</span><span class="n">valid_type</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span>
+
+        <span class="k">elif</span> <span class="n">valid_type</span> <span class="o">==</span> <span class="s2">"date"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">DATE_PATTERN</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<h3 id="step-2-update-insert-in-dbmspy">Step 2: Update insert() in dbms.py</h3>
+<p>Add CHAR length validation before the is_valid_type check (around line 163-166) and remove truncation logic.</p>
+<h3 id="step-3-test">Step 3: Test</h3>
+<p>Verify with issue test cases:
+- INSERT with bool as int → FAIL
+- INSERT with CHAR overflow → FAIL<br>
+- INSERT with invalid date → FAIL
+- Valid INSERT → PASS</p>
 <h2 id="test-strategy">Test Strategy</h2>
+<h3 id="unit-tests">Unit Tests</h3>
 <ul>
-<li>Unit: is_valid_type() with INT, CHAR, DATE</li>
-<li>Integration: Full INSERT flow</li>
-<li>Edge cases: empty strings, boundaries, NULLs</li>
+<li>INT: 123 (pass), True (fail), "123" (fail)</li>
+<li>CHAR(5): "abc" (pass), "abcdef" (fail)</li>
+<li>DATE: "2023-12-25" (pass), "2023-13-25" (fail)</li>
 </ul>
-<h2 id="risks">Risks</h2>
+<h3 id="integration-tests">Integration Tests</h3>
+<ul>
+<li>Valid INSERT with all types</li>
+<li>Invalid INSERT with each violation type</li>
+<li>NULL handling for nullable vs NOT NULL</li>
+</ul>
+<h3 id="edge-cases">Edge Cases</h3>
+<ul>
+<li>Empty string in CHAR(N)</li>
+<li>Boundary length (exactly N chars)</li>
+<li>Date boundaries (01-12, 01-31)</li>
+<li>NULL values</li>
+<li>Negative integers</li>
+</ul>
+<h2 id="risks-mitigations">Risks &amp; Mitigations</h2>
 <table>
 <thead>
 <tr>
@@ -745,8 +950,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Breaking existing code</td>
-<td>Prevents silent data loss</td>
+<td>Breaking existing code relying on truncation</td>
+<td>Intentional - prevents silent data loss</td>
+</tr>
+<tr>
+<td>Date validation complexity</td>
+<td>Keep simple, enhance later if needed</td>
 </tr>
 <tr>
 <td>Performance</td>
@@ -764,16 +973,26 @@
     E --&gt; F{All OK?}
     F --&gt;|No| G[Error: NOT NULL]
     F --&gt;|Yes| H[Validate Types]
-    H --&gt; I{INT?}
-    I --&gt;|Check| J[is int AND not bool]
+    H --&gt; I{Column Type}
+    I --&gt;|INT| J[is int AND not bool]
     I --&gt;|CHAR| K[is str AND len &lt;= N]
     I --&gt;|DATE| L[YYYY-MM-DD + range]
     J --&gt; M{Valid?}
     K --&gt; M
     L --&gt; M
     M --&gt;|No| N[Error: Type Mismatch]
-    M --&gt;|Yes| O[Insert Record]
-    O --&gt; P[Success]
+    M --&gt;|Yes| O[Check Foreign Keys]
+    O --&gt; P{FK OK?}
+    P --&gt;|No| Q[Error: Referential Integrity]
+    P --&gt;|Yes| R[Check Primary Key]
+    R --&gt; S{PK Duplicate?}
+    S --&gt;|Yes| T[Error: PK Duplication]
+    S --&gt;|No| U[Insert Record]
+    U --&gt; V[Success]
+
+    style J fill:#6f6
+    style K fill:#6f6
+    style L fill:#6f6
 </code></pre></div>
 
 
