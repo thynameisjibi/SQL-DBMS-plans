@@ -1,0 +1,25 @@
+/* Custom styles for implementation plans */
+
+/* Diagram containers */
+.diagram-container {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+/* Code blocks with better contrast */
+.md-typeset pre > code {
+  border-radius: 4px;
+}
+
+/* Table styling */
+.md-typeset table {
+  font-size: 0.85rem;
+}
+
+/* Warning/admonition boxes */
+.md-typeset .admonition {
+  border-radius: 4px;
+}

@@ -1,0 +1,15 @@
+flowchart TD
+    A[User Input: UPDATE with multi-assignment] --> B[Lark Parser]
+    B --> C{Grammar Match?}
+    C -->|Yes| D[Parse Tree]
+    C -->|No| E[Syntax Error]
+    D --> F[SQLTransformer.update_query]
+    F --> G[Extract table_name]
+    F --> H[Extract assignments list]
+    F --> I[Extract WHERE clause]
+    G --> J[Store in self.table]
+    H --> J
+    I --> K[Store in self.where]
+    J --> L[Return to Executor]
+    K --> L
+    L --> M[Execute UPDATE]
