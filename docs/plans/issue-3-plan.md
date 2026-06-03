@@ -20,3 +20,59 @@ assignment : column_name EQUAL value
 ```
 
 This needs to be extended to support multiple assignments and the full implementation pipeline.
+
+additional
+
+## Proposed Solution
+
+Implement UPDATE following the same pattern as DELETE.
+
+## Files to Modify
+
+| File | Change |
+|------|--------|
+| grammar.lark | Lines 152-153 |
+| sql_transformer.py | Lines 249-251 |
+| dbms.py | After line 269 |
+| run.py | Lines 47-54 |
+| messages.py | Add exceptions |
+
+## Implementation Steps
+
+1. Update grammar to support multiple assignments
+2. Implement update_query() transformer
+3. Add UpdatePrimaryKeyError exception
+4. Add UpdateResult success message
+5. Implement DBMS.update() with two-pass validation
+6. Add dispatcher in run.py
+
+## Test Strategy
+
+- Basic UPDATE without WHERE
+- UPDATE with WHERE clause
+- Multiple column assignments
+- NOT NULL and PK constraints
+- Foreign key validation
+
+## Dependencies
+
+- Blocks: Phase 3.1 (transactions)
+- Blocked by: Phase 0 (assumed complete)
+
+## Diagrams
+
+### Execution Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant DBMS as DBMS.update()
+    User->>DBMS: UPDATE statement
+    DBMS->>DBMS: Pass 1: Validate
+    DBMS->>DBMS: Pass 2: Apply
+    DBMS-->>User: Result
+```
+
+## References
+
+- Issue: https://github.com/thynameisjibi/SQL-DBMS/issues/3
