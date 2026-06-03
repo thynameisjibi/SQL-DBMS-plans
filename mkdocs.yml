@@ -1,18 +1,19 @@
 site_name: Implementation Plans
-site_url: ""
+site_url: ''
 theme:
   name: material
   palette:
     scheme: slate
     primary: indigo
 plugins:
-  - glightbox
+- glightbox
 nav:
-  - Home: index.md
-  - Plans:
-    - "(Plans will appear here)": plans/.gitkeep
+- Home: index.md
+- Plans:
+  - (Plans will appear here): plans/.gitkeep
+  - "Issue #4 \u2013 Hash Index Implementation": plans/issue-4-plan.md
 markdown_extensions:
-  - pymdownx.superfences
-  - pymdownx.highlight
+- pymdownx.superfences
+- pymdownx.highlight
 extra_css:
-  - stylesheets/extra.css
+- stylesheets/extra.css
