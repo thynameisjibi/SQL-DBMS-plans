@@ -1,0 +1,51 @@
+classDiagram
+    class SuccessLog {
+        +message: str
+        +__str__()
+    }
+    
+    class UpdateResult {
+        +row_count: int
+        +__init__(row_count)
+    }
+    
+    class Exception {
+        +message: str
+    }
+    
+    class InsertDateFormatException {
+        +__init__()
+    }
+    
+    class InsertCharLengthExceeded {
+        +__init__()
+    }
+    
+    class UpdateReferentialIntegrityError {
+        +__init__()
+    }
+    
+    class UpdateTypeMismatchError {
+        +__init__()
+    }
+    
+    class ActiveTransactionError {
+        +__init__()
+    }
+    
+    class NoActiveTransactionError {
+        +__init__()
+    }
+    
+    class InvalidTransactionStateError {
+        +__init__()
+    }
+    
+    SuccessLog <|-- UpdateResult
+    Exception <|-- InsertDateFormatException
+    Exception <|-- InsertCharLengthExceeded
+    Exception <|-- UpdateReferentialIntegrityError
+    Exception <|-- UpdateTypeMismatchError
+    Exception <|-- ActiveTransactionError
+    Exception <|-- NoActiveTransactionError
+    Exception <|-- InvalidTransactionStateError
