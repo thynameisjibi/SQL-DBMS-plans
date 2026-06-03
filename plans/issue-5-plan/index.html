@@ -16,7 +16,7 @@
     
     
       
-        <title>Issue #3: Phase 1.2 - UPDATE Statement Implementation - Implementation Plans</title>
+        <title>Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK) - Implementation Plans</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#issue-3-phase-12-update-statement-implementation" class="md-skip">
+        <a href="#issue-5-phase-31-basic-transaction-support-begincommitrollback" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Issue #3: Phase 1.2 - UPDATE Statement Implementation
+              Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK)
             
           </span>
         </div>
@@ -347,36 +347,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#root-cause-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Root Cause Analysis
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -392,21 +362,7 @@
 
 
 
-<h1 id="issue-3-phase-12-update-statement-implementation">Issue #3: Phase 1.2 - UPDATE Statement Implementation</h1>
-<h2 id="summary">Summary</h2>
-<p>Implement the UPDATE statement with full constraint checking, supporting both single and multiple column assignments. This feature completes the CRUD operations by adding the missing UPDATE functionality to the SQL DBMS.</p>
-<h2 id="root-cause-analysis">Root Cause Analysis</h2>
-<p><strong>Current State:</strong>
-- The UPDATE grammar exists in <code>grammar.lark</code> (line 152) but only supports single assignment
-- The <code>SQLTransformer.update_query()</code> method (sql_transformer.py lines 249-251) returns a placeholder string <code>"'UPDATE' requested"</code> instead of parsing the statement properly
-- The <code>DBMS</code> class has no <code>update()</code> method
-- The <code>run.py</code> dispatcher has no UPDATE statement handler</p>
-<p><strong>Why This Issue Exists:</strong>
-The UPDATE statement was defined in the grammar as a stub during initial setup but was never implemented. The grammar currently only supports:
-</p><div class="highlight"><pre><span></span><code>update_query : UPDATE table_name SET assignment [where_clause]
-assignment : column_name EQUAL value
-</code></pre></div><p></p>
-<p>This needs to be extended to support multiple assignments and the full implementation pipeline.</p>
+<h1 id="issue-5-phase-31-basic-transaction-support-begincommitrollback">Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK)</h1>
 
 
 

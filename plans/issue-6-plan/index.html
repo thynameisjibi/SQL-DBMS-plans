@@ -6,6 +6,8 @@
       
       
       
+        <link rel="prev" href="../issue-4-plan/">
+      
       
       
         
@@ -16,7 +18,7 @@
     
     
       
-        <title>Issue #6: Phase 4.1: Web-Based GUI - Implementation Plans</title>
+        <title>Issue #6 – Phase 4.1: Web-Based GUI - Implementation Plans</title>
       
     
     
@@ -113,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Issue #6: Phase 4.1: Web-Based GUI
+              Issue #6 – Phase 4.1: Web-Based GUI
             
           </span>
         </div>
@@ -193,18 +195,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -225,7 +229,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -287,6 +291,441 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Issue #6 – Phase 4.1: Web-Based GUI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Issue #6 – Phase 4.1: Web-Based GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-cause-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposed-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposed Solution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-to-modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files to Modify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-project-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update Project Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-gui-module-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create GUI Module Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-flask-application-guiapppy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement Flask Application (gui/app.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-build-html-interface-guitemplatesindexhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Build HTML Interface (gui/templates/index.html)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-style-the-interface-guistaticstylecss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Style the Interface (gui/static/style.css)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-implement-client-side-logic-guistaticappjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Implement Client-Side Logic (gui/static/app.js)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-create-gui-requirements-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Create GUI Requirements File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-test-the-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Test the Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks &amp; Mitigations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-layout-mockup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Layout Mockup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Specifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flask-application-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flask Application Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Response Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -874,267 +1313,198 @@ flask-cors==4.0.0
 </table>
 <h2 id="diagrams">Diagrams</h2>
 <h3 id="architecture-diagram">Architecture Diagram</h3>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>SQL DBMS Web GUI Architecture<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"../stylesheets/extra.css"</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"diagram-container"</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"architecture-diagram"</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box browser"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Web Browser<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>index.html + app.js<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>Query Editor <span class="err">&amp;</span> Results<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"arrow"</span><span class="p">&gt;</span>⬇ HTTP/JSON ⬇<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box flask"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Flask Server<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>gui/app.py<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>REST API Endpoints<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"arrow"</span><span class="p">&gt;</span>⬇ Method Calls ⬇<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box dbms"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>DBMS Engine<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>dbms.py<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>SQL Execution<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"arrow"</span><span class="p">&gt;</span>⬇ File I/O ⬇<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Database Files<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>./DB/ directory<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>Persistent Storage<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../issue-6-architecture.png" data-desc-position="bottom"><img alt="Architecture Diagram" src="../issue-6-architecture.png"></a></p>
 <h3 id="data-flow-diagram">Data Flow Diagram</h3>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Query Execution Flow<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"../stylesheets/extra.css"</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"diagram-container"</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"data-flow"</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-step"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box browser"</span><span class="p">&gt;</span>1. User Types Query<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-arrow"</span><span class="p">&gt;</span>→<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-step"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box flask"</span><span class="p">&gt;</span>2. POST /api/execute<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-arrow"</span><span class="p">&gt;</span>→<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-step"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box dbms"</span><span class="p">&gt;</span>3. Execute SQL<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-arrow"</span><span class="p">&gt;</span>→<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-step"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box flask"</span><span class="p">&gt;</span>4. Return JSON<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-arrow"</span><span class="p">&gt;</span>→<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"flow-step"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"component-box browser"</span><span class="p">&gt;</span>5. Render Results<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../issue-6-dataflow.png" data-desc-position="bottom"><img alt="Data Flow Diagram" src="../issue-6-dataflow.png"></a></p>
 <h3 id="ui-layout-mockup">UI Layout Mockup</h3>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>SQL DBMS Web GUI Mockup<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="w">        </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="w"> </span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="w"> </span><span class="s1">'Segoe UI'</span><span class="p">,</span><span class="w"> </span><span class="n">Roboto</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e0e0e0</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
-<span class="w">            </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-<span class="w">            </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">sidebar</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#16213e</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="nb">calc</span><span class="p">(</span><span class="mi">100</span><span class="kt">vh</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">);</span>
-<span class="w">            </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">main-content</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
-<span class="w">            </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">column</span><span class="p">;</span>
-<span class="w">            </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">query-editor</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#0f3460</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">textarea</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-<span class="w">            </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e0e0e0</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">'Courier New'</span><span class="p">,</span><span class="w"> </span><span class="kc">monospace</span><span class="p">;</span>
-<span class="w">            </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">resize</span><span class="p">:</span><span class="w"> </span><span class="kc">vertical</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">button-row</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
-<span class="w">            </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">linear-gradient</span><span class="p">(</span><span class="mi">135</span><span class="kt">deg</span><span class="p">,</span><span class="w"> </span><span class="mh">#667eea</span><span class="w"> </span><span class="mi">0</span><span class="kt">%</span><span class="p">,</span><span class="w"> </span><span class="mh">#764ba2</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">);</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
-<span class="w">            </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">button</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">results-panel</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#16213e</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">table</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-collapse</span><span class="p">:</span><span class="w"> </span><span class="kc">collapse</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">th</span><span class="o">,</span><span class="w"> </span><span class="nt">td</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#0f3460</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#0f3460</span><span class="p">;</span>
-<span class="w">            </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">table-list</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">table-list</span><span class="w"> </span><span class="nt">li</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#0f3460</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">table-list</span><span class="w"> </span><span class="nt">li</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">error-message</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#e74c3c</span><span class="p">;</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="p">.</span><span class="nc">success-message</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#27ae60</span><span class="p">;</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
-<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nt">h3</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">            </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#667eea</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container"</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"sidebar"</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>📊 Schema Browser<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"table-list"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>📄 users<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>📄 orders<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>📄 products<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"margin-top: 20px;"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>🔧 Transaction<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"button-row"</span> <span class="na">style</span><span class="o">=</span><span class="s">"flex-direction: column;"</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">style</span><span class="o">=</span><span class="s">"background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"</span><span class="p">&gt;</span>BEGIN<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">style</span><span class="o">=</span><span class="s">"background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"</span><span class="p">&gt;</span>COMMIT<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">style</span><span class="o">=</span><span class="s">"background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #1a1a2e;"</span><span class="p">&gt;</span>ROLLBACK<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"main-content"</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"query-editor"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>✏️ SQL Query Editor<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Enter your SQL query here...&amp;#10;&amp;#10;Example:&amp;#10;SELECT * FROM users WHERE age &gt; 18;"</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"button-row"</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>▶ Execute Query<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">style</span><span class="o">=</span><span class="s">"background: #6c757d;"</span><span class="p">&gt;</span>Clear<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"results-panel"</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>📋 Results<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>id<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>email<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>age<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>John Doe<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>john@example.com<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>25<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>2<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Jane Smith<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>jane@example.com<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>30<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../issue-6-ui-mockup.png" data-desc-position="bottom"><img alt="UI Mockup" src="../issue-6-ui-mockup.png"></a></p>
+<!-- HTML_SOURCE_START
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL DBMS Web GUI Mockup</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .sidebar {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .query-editor {
+            background: #0f3460;
+            border: 1px solid #1a1a2e;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+        }
+        .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .results-panel {
+            background: #16213e;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 300px;
+            overflow: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #0f3460;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background: #0f3460;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.05);
+        }
+        .table-list {
+            list-style: none;
+            padding: 0;
+        }
+        .table-list li {
+            padding: 8px;
+            margin: 5px 0;
+            background: #0f3460;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .table-list li:hover {
+            background: #1a1a2e;
+        }
+        .error-message {
+            background: #e74c3c;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .success-message {
+            background: #27ae60;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>📊 Schema Browser</h3>
+            <ul class="table-list">
+                <li>📄 users</li>
+                <li>📄 orders</li>
+                <li>📄 products</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <h3>🔧 Transaction</h3>
+                <div class="button-row" style="flex-direction: column;">
+                    <button style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">BEGIN</button>
+                    <button style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">COMMIT</button>
+                    <button style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #1a1a2e;">ROLLBACK</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="query-editor">
+                <h3>✏️ SQL Query Editor</h3>
+                <textarea placeholder="Enter your SQL query here...&#10;&#10;Example:&#10;SELECT * FROM users WHERE age > 18;"></textarea>
+                <div class="button-row">
+                    <button>▶ Execute Query</button>
+                    <button style="background: #6c757d;">Clear</button>
+                </div>
+            </div>
+            <div class="results-panel">
+                <h3>📋 Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+HTML_SOURCE_END -->
+
 <h2 id="technical-specifications">Technical Specifications</h2>
 <h3 id="flask-application-structure">Flask Application Structure</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
