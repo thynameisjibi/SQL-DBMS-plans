@@ -136,89 +136,17 @@ Create `gui/requirements.txt` with Flask-specific dependencies for easy deployme
 
 ### Architecture Diagram
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL DBMS Web GUI Architecture</title>
-    <link rel="stylesheet" href="../stylesheets/extra.css">
-</head>
-<body>
-    <div class="diagram-container">
-        <div class="architecture-diagram">
-            <div class="component-box browser">
-                <strong>Web Browser</strong><br>
-                <small>index.html + app.js</small><br>
-                <small>Query Editor & Results</small>
-            </div>
-            <div class="arrow">⬇ HTTP/JSON ⬇</div>
-            <div class="component-box flask">
-                <strong>Flask Server</strong><br>
-                <small>gui/app.py</small><br>
-                <small>REST API Endpoints</small>
-            </div>
-            <div class="arrow">⬇ Method Calls ⬇</div>
-            <div class="component-box dbms">
-                <strong>DBMS Engine</strong><br>
-                <small>dbms.py</small><br>
-                <small>SQL Execution</small>
-            </div>
-            <div class="arrow">⬇ File I/O ⬇</div>
-            <div class="component-box">
-                <strong>Database Files</strong><br>
-                <small>./DB/ directory</small><br>
-                <small>Persistent Storage</small>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
+![Architecture Diagram](./issue-6-architecture.png)
 
 ### Data Flow Diagram
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Query Execution Flow</title>
-    <link rel="stylesheet" href="../stylesheets/extra.css">
-</head>
-<body>
-    <div class="diagram-container">
-        <div class="data-flow">
-            <div class="flow-step">
-                <div class="component-box browser">1. User Types Query</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="component-box flask">2. POST /api/execute</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="component-box dbms">3. Execute SQL</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="component-box flask">4. Return JSON</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="component-box browser">5. Render Results</div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
+![Data Flow Diagram](./issue-6-dataflow.png)
 
 ### UI Layout Mockup
 
-```html
+![UI Mockup](./issue-6-ui-mockup.png)
+
+<!-- HTML_SOURCE_START
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -403,7 +331,7 @@ Create `gui/requirements.txt` with Flask-specific dependencies for easy deployme
     </div>
 </body>
 </html>
-```
+HTML_SOURCE_END -->
 
 ## Technical Specifications
 

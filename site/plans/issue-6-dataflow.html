@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Execution Flow</title>
+    <link rel="stylesheet" href="../stylesheets/extra.css">
+</head>
+<body>
+    <div class="diagram-container">
+        <div class="data-flow">
+            <div class="flow-step">
+                <div class="component-box browser">1. User Types Query</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="component-box flask">2. POST /api/execute</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="component-box dbms">3. Execute SQL</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="component-box flask">4. Return JSON</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="component-box browser">5. Render Results</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
