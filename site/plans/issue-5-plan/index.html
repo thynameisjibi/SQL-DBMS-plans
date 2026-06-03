@@ -16,7 +16,7 @@
     
     
       
-        <title>Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK) - Implementation Plans</title>
+        <title>Issue #5: Phase 3.1: Basic Transaction Support - Implementation Plans</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#issue-5-phase-31-basic-transaction-support-begincommitrollback" class="md-skip">
+        <a href="#issue-5-phase-31-basic-transaction-support" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK)
+              Issue #5: Phase 3.1: Basic Transaction Support
             
           </span>
         </div>
@@ -243,6 +243,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../issue-3-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Issue #3 – UPDATE Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issue-1-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Issue #1 – Phase 0 Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../issue-2-plan/" class="md-nav__link">
         
   
@@ -347,6 +403,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-to-modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files to Modify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -362,7 +492,70 @@
 
 
 
-<h1 id="issue-5-phase-31-basic-transaction-support-begincommitrollback">Issue #5: Phase 3.1: Basic Transaction Support (BEGIN/COMMIT/ROLLBACK)</h1>
+<h1 id="issue-5-phase-31-basic-transaction-support">Issue #5: Phase 3.1: Basic Transaction Support</h1>
+<h2 id="summary">Summary</h2>
+<p>Implement ACID transaction support for INSERT/UPDATE/DELETE with undo logging and crash recovery.</p>
+<p><strong>Scope:</strong>
+- INCLUDED: INSERT, UPDATE, DELETE
+- EXCLUDED: Schema changes (auto-commit)</p>
+<h2 id="files-to-modify">Files to Modify</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transaction.py</td>
+<td>NEW - TransactionManager</td>
+</tr>
+<tr>
+<td>dbms.py</td>
+<td>Add transaction support</td>
+</tr>
+<tr>
+<td>messages.py</td>
+<td>Error classes</td>
+</tr>
+<tr>
+<td>db_model.py</td>
+<td>Log classes</td>
+</tr>
+<tr>
+<td>run.py</td>
+<td>Command handlers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="implementation-steps">Implementation Steps</h2>
+<ol>
+<li>Create UndoLogEntry and TransactionLog classes</li>
+<li>Create TransactionManager class</li>
+<li>Integrate into DBMS</li>
+<li>Add error handling</li>
+<li>Update SQL grammar</li>
+</ol>
+<h2 id="diagrams">Diagrams</h2>
+<div class="highlight"><pre><span></span><code>stateDiagram-v2
+    [*] --&gt; AutoCommit
+    AutoCommit --&gt; Active: BEGIN
+    Active --&gt; AutoCommit: COMMIT
+    Active --&gt; AutoCommit: ROLLBACK
+</code></pre></div>
+<h2 id="success-criteria">Success Criteria</h2>
+<ol>
+<li>BEGIN/COMMIT/ROLLBACK work correctly</li>
+<li>Rollback undoes all operations</li>
+<li>Auto-commit works</li>
+<li>Logs cleaned up after commit/rollback</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>IMPLEMENTATION_PLAN.md Phase 3.1</li>
+<li>ARIES transaction recovery algorithm</li>
+</ul>
 
 
 
