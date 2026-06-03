@@ -16,7 +16,7 @@
     
     
       
-        <title>Issue #5: Phase 3.1: Basic Transaction Support - Implementation Plans</title>
+        <title>Issue #2 - Testing Report - Implementation Plans</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#issue-5-phase-31-basic-transaction-support" class="md-skip">
+        <a href="#issue-2-testing-report" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Issue #5: Phase 3.1: Basic Transaction Support
+              Issue #2 - Testing Report
             
           </span>
         </div>
@@ -438,10 +438,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#tests-performed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Tests Performed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tests Performed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests-test_utilspy-27-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Tests (test_utils.py — 27 tests)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests-test_dbms_insertpy-13-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Tests (test_dbms_insert.py — 13 tests)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adversarial-tests-test_adversarialpy-26-tests-1-skipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adversarial Tests (test_adversarial.py — 26 tests, 1 skipped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bugs-found-fixed-during-adversarial-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bugs Found &amp; Fixed During Adversarial Testing
       
     </span>
   </a>
@@ -449,54 +499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#files-to-modify" class="md-nav__link">
+  <a href="#verified-robust-against" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Files to Modify
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diagrams
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#success-criteria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Success Criteria
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
+        Verified Robust Against
       
     </span>
   </a>
@@ -520,69 +526,390 @@
 
 
 
-<h1 id="issue-5-phase-31-basic-transaction-support">Issue #5: Phase 3.1: Basic Transaction Support</h1>
-<h2 id="summary">Summary</h2>
-<p>Implement ACID transaction support for INSERT/UPDATE/DELETE with undo logging and crash recovery.</p>
-<p><strong>Scope:</strong>
-- INCLUDED: INSERT, UPDATE, DELETE
-- EXCLUDED: Schema changes (auto-commit)</p>
-<h2 id="files-to-modify">Files to Modify</h2>
+<h1 id="issue-2-testing-report">Issue #2 - Testing Report</h1>
+<h2 id="tests-performed">Tests Performed</h2>
+<h3 id="unit-tests-test_utilspy-27-tests">Unit Tests (<code>test_utils.py</code> — 27 tests)</h3>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Change</th>
+<th>Test</th>
+<th>Result</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>transaction.py</td>
-<td>NEW - TransactionManager</td>
+<td>INT: positive number passes</td>
+<td>PASS</td>
+<td></td>
 </tr>
 <tr>
-<td>dbms.py</td>
-<td>Add transaction support</td>
+<td>INT: zero passes</td>
+<td>PASS</td>
+<td></td>
 </tr>
 <tr>
-<td>messages.py</td>
-<td>Error classes</td>
+<td>INT: negative passes</td>
+<td>PASS</td>
+<td></td>
 </tr>
 <tr>
-<td>db_model.py</td>
-<td>Log classes</td>
+<td>INT: bool True fails</td>
+<td>PASS</td>
+<td>Fixed: <code>isinstance(v, int) and not isinstance(v, bool)</code></td>
 </tr>
 <tr>
-<td>run.py</td>
-<td>Command handlers</td>
+<td>INT: bool False fails</td>
+<td>PASS</td>
+<td>Fixed: same as above</td>
+</tr>
+<tr>
+<td>INT: string fails</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>INT: float fails</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>INT: None passes</td>
+<td>PASS</td>
+<td>NULL handling preserved</td>
+</tr>
+<tr>
+<td>CHAR: short string passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>CHAR: exact length passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>CHAR: overflow fails</td>
+<td>PASS</td>
+<td>Fixed: validates <code>len(v) &lt;= N</code> instead of truncating</td>
+</tr>
+<tr>
+<td>CHAR: empty string passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>CHAR: digit string passes</td>
+<td>PASS</td>
+<td>Fixed: removed erroneous <code>not v.isdigit()</code> check</td>
+</tr>
+<tr>
+<td>CHAR: non-string fails</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>CHAR: None passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>DATE: valid passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>DATE: first/last day passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>DATE: invalid month fails</td>
+<td>PASS</td>
+<td>Fixed: <code>1 &lt;= month &lt;= 12</code></td>
+</tr>
+<tr>
+<td>DATE: month zero fails</td>
+<td>PASS</td>
+<td>Fixed: same</td>
+</tr>
+<tr>
+<td>DATE: invalid day fails</td>
+<td>PASS</td>
+<td>Fixed: <code>1 &lt;= day &lt;= 31</code></td>
+</tr>
+<tr>
+<td>DATE: day zero fails</td>
+<td>PASS</td>
+<td>Fixed: same</td>
+</tr>
+<tr>
+<td>DATE: non-string fails</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>DATE: bad format fails</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>DATE: None passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Edge: unknown type</td>
+<td>PASS</td>
+<td>Returns False</td>
+</tr>
+<tr>
+<td>Edge: large N boundary</td>
+<td>PASS</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="implementation-steps">Implementation Steps</h2>
+<h3 id="integration-tests-test_dbms_insertpy-13-tests">Integration Tests (<code>test_dbms_insert.py</code> — 13 tests)</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valid int+char+date insert</td>
+<td>PASS</td>
+<td>End-to-end success</td>
+</tr>
+<tr>
+<td>NULL for nullable columns</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Exact CHAR boundary</td>
+<td>PASS</td>
+<td>No truncation, exact match allowed</td>
+</tr>
+<tr>
+<td>Empty string CHAR</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Bool as INT fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>String as INT fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>CHAR overflow fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError (not truncated)</td>
+</tr>
+<tr>
+<td>INT as CHAR fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>Invalid date month fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>Invalid date day fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>Bad date format fails</td>
+<td>PASS</td>
+<td>Raises InsertTypeMismatchError</td>
+</tr>
+<tr>
+<td>NULL for NOT NULL fails</td>
+<td>PASS</td>
+<td>Raises InsertColumnNonNullableError</td>
+</tr>
+<tr>
+<td>NULL for nullable passes</td>
+<td>PASS</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="adversarial-tests-test_adversarialpy-26-tests-1-skipped">Adversarial Tests (<code>test_adversarial.py</code> — 26 tests, 1 skipped)</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Very large INT</td>
+<td>PASS</td>
+<td><code>10**18</code> accepted</td>
+</tr>
+<tr>
+<td>numpy.bool_</td>
+<td>SKIP</td>
+<td>numpy not installed</td>
+</tr>
+<tr>
+<td>Custom int subclass</td>
+<td>PASS</td>
+<td>Accepted per plan scope</td>
+</tr>
+<tr>
+<td>Unicode in CHAR</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Emoji boundary</td>
+<td>PASS</td>
+<td><code>len()</code> counts codepoints</td>
+</tr>
+<tr>
+<td>Whitespace CHAR</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Newline in CHAR</td>
+<td>PASS</td>
+<td>Correct length check</td>
+</tr>
+<tr>
+<td>Bytes as CHAR</td>
+<td>PASS</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>List as CHAR</td>
+<td>PASS</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>Leap year Feb 29</td>
+<td>PASS</td>
+<td>Simple 01-31 validation accepts</td>
+</tr>
+<tr>
+<td>Non-leap Feb 29</td>
+<td>PASS</td>
+<td>Known limitation — full calendar not in scope</td>
+</tr>
+<tr>
+<td>Year 0000 / 9999</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Missing leading zero</td>
+<td>PASS</td>
+<td>Rejected (regex strict)</td>
+</tr>
+<tr>
+<td>Extra characters in date</td>
+<td>PASS</td>
+<td>Fixed: <code>re.fullmatch</code> rejects trailing chars</td>
+</tr>
+<tr>
+<td>Empty date string</td>
+<td>PASS</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>None type name</td>
+<td>PASS</td>
+<td>Returns False gracefully</td>
+</tr>
+<tr>
+<td>Empty type name</td>
+<td>PASS</td>
+<td>Returns False</td>
+</tr>
+<tr>
+<td>Malformed char type</td>
+<td>PASS</td>
+<td>Fixed: catches SyntaxError/NameError</td>
+</tr>
+<tr>
+<td>Rapid PK duplicate</td>
+<td>PASS</td>
+<td>InsertDuplicatePrimaryKeyError raised</td>
+</tr>
+<tr>
+<td>Bool False as INT</td>
+<td>PASS</td>
+<td>InsertTypeMismatchError raised</td>
+</tr>
+<tr>
+<td>CHAR exact boundary</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>CHAR one over boundary</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Unicode in CHAR</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>Unicode overflow CHAR</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>All NULL except NOT NULL</td>
+<td>PASS</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bugs-found-fixed-during-adversarial-testing">Bugs Found &amp; Fixed During Adversarial Testing</h2>
 <ol>
-<li>Create UndoLogEntry and TransactionLog classes</li>
-<li>Create TransactionManager class</li>
-<li>Integrate into DBMS</li>
-<li>Add error handling</li>
-<li>Update SQL grammar</li>
+<li><strong><code>re.match</code> allows trailing characters in DATE</strong>: <code>"2023-01-01 "</code> passed because <code>re.match</code> only anchors at the start.</li>
+<li>
+<p><strong>Fix</strong>: Changed to <code>re.fullmatch</code> to require the entire string to match the pattern.</p>
+</li>
+<li>
+<p><strong>Malformed <code>char()</code> / <code>char(x)</code> crashed with uncaught exceptions</strong>: <code>eval("")</code> raises <code>SyntaxError</code>, <code>eval("x")</code> raises <code>NameError</code>.</p>
+</li>
+<li>
+<p><strong>Fix</strong>: Added <code>SyntaxError</code> and <code>NameError</code> to the exception catch in <code>is_valid_type()</code>.</p>
+</li>
+<li>
+<p><strong>Windows file locking in test teardown</strong>: DB files were locked by the process, preventing cleanup.</p>
+</li>
+<li><strong>Fix</strong>: Added <code>gc.collect()</code> and <code>ignore_errors=True</code> in test fixtures.</li>
 </ol>
-<h2 id="diagrams">Diagrams</h2>
-<div class="highlight"><pre><span></span><code>stateDiagram-v2
-    [*] --&gt; AutoCommit
-    AutoCommit --&gt; Active: BEGIN
-    Active --&gt; AutoCommit: COMMIT
-    Active --&gt; AutoCommit: ROLLBACK
-</code></pre></div>
-<h2 id="success-criteria">Success Criteria</h2>
-<ol>
-<li>BEGIN/COMMIT/ROLLBACK work correctly</li>
-<li>Rollback undoes all operations</li>
-<li>Auto-commit works</li>
-<li>Logs cleaned up after commit/rollback</li>
-</ol>
-<h2 id="references">References</h2>
+<h2 id="verified-robust-against">Verified Robust Against</h2>
 <ul>
-<li>IMPLEMENTATION_PLAN.md Phase 3.1</li>
-<li>ARIES transaction recovery algorithm</li>
+<li>Boolean-as-integer injection (True, False, numpy.bool_)</li>
+<li>CHAR length overflow (exact boundary, one over, unicode, emoji)</li>
+<li>DATE format attacks (trailing chars, missing leading zeros, invalid month/day)</li>
+<li>Type confusion (int as char, string as int, bytes as char, list as char)</li>
+<li>NULL injection (NOT NULL columns, nullable columns)</li>
+<li>Primary key duplication</li>
+<li>Malformed type strings</li>
 </ul>
 
 

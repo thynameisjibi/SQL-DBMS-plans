@@ -16,7 +16,7 @@
     
     
       
-        <title>Issue #5: Phase 3.1: Basic Transaction Support - Implementation Plans</title>
+        <title>Issue #5 - Testing Report - Implementation Plans</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#issue-5-phase-31-basic-transaction-support" class="md-skip">
+        <a href="#issue-5-testing-report" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Issue #5: Phase 3.1: Basic Transaction Support
+              Issue #5 - Testing Report
             
           </span>
         </div>
@@ -438,10 +438,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#tests-performed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Tests Performed
       
     </span>
   </a>
@@ -449,10 +449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#files-to-modify" class="md-nav__link">
+  <a href="#bugs-found-fixed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Files to Modify
+        Bugs Found &amp; Fixed
       
     </span>
   </a>
@@ -460,10 +460,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-steps" class="md-nav__link">
+  <a href="#verified-robust-against" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation Steps
+        Verified Robust Against
       
     </span>
   </a>
@@ -471,32 +471,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diagrams" class="md-nav__link">
+  <a href="#known-limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagrams
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#success-criteria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Success Criteria
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
+        Known Limitations
       
     </span>
   </a>
@@ -520,69 +498,271 @@
 
 
 
-<h1 id="issue-5-phase-31-basic-transaction-support">Issue #5: Phase 3.1: Basic Transaction Support</h1>
-<h2 id="summary">Summary</h2>
-<p>Implement ACID transaction support for INSERT/UPDATE/DELETE with undo logging and crash recovery.</p>
-<p><strong>Scope:</strong>
-- INCLUDED: INSERT, UPDATE, DELETE
-- EXCLUDED: Schema changes (auto-commit)</p>
-<h2 id="files-to-modify">Files to Modify</h2>
+<h1 id="issue-5-testing-report">Issue #5 - Testing Report</h1>
+<h2 id="tests-performed">Tests Performed</h2>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Change</th>
+<th>Test</th>
+<th>Result</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>transaction.py</td>
-<td>NEW - TransactionManager</td>
+<td>Transaction starts in ACTIVE state</td>
+<td>PASS</td>
+<td>Verified tx.state == ACTIVE</td>
 </tr>
 <tr>
-<td>dbms.py</td>
-<td>Add transaction support</td>
+<td>Log INSERT for rollback</td>
+<td>PASS</td>
+<td>old_data is None, operation == "INSERT"</td>
 </tr>
 <tr>
-<td>messages.py</td>
-<td>Error classes</td>
+<td>Log DELETE for rollback</td>
+<td>PASS</td>
+<td>old_data captured for restoration</td>
 </tr>
 <tr>
-<td>db_model.py</td>
-<td>Log classes</td>
+<td>Log UPDATE for rollback</td>
+<td>PASS</td>
+<td>old_data captured for restoration</td>
 </tr>
 <tr>
-<td>run.py</td>
-<td>Command handlers</td>
+<td>Commit clears undo log</td>
+<td>PASS</td>
+<td>undo_log == [], modified_tables == set()</td>
+</tr>
+<tr>
+<td>Rollback restores deleted record</td>
+<td>PASS</td>
+<td>Record restored from old_data</td>
+</tr>
+<tr>
+<td>Rollback removes inserted record</td>
+<td>PASS</td>
+<td>Record deleted from DB</td>
+</tr>
+<tr>
+<td>Rollback reverse order (LIFO)</td>
+<td>PASS</td>
+<td>Multi-operation rollback correct</td>
+</tr>
+<tr>
+<td>TransactionLog append and read</td>
+<td>PASS</td>
+<td>JSON log file created</td>
+</tr>
+<tr>
+<td>Get uncommitted transactions</td>
+<td>PASS</td>
+<td>Returns only ACTIVE entries</td>
+</tr>
+<tr>
+<td>Exclude committed from uncommitted</td>
+<td>PASS</td>
+<td>COMMITTED entries filtered out</td>
+</tr>
+<tr>
+<td>Clear log</td>
+<td>PASS</td>
+<td>Log file removed</td>
+</tr>
+<tr>
+<td>BEGIN starts transaction</td>
+<td>PASS</td>
+<td>auto_commit=False, current_transaction set</td>
+</tr>
+<tr>
+<td>BEGIN when active raises error</td>
+<td>PASS</td>
+<td>ActiveTransactionError raised</td>
+</tr>
+<tr>
+<td>COMMIT without BEGIN raises error</td>
+<td>PASS</td>
+<td>NoActiveTransactionError raised</td>
+</tr>
+<tr>
+<td>COMMIT finalizes transaction</td>
+<td>PASS</td>
+<td>Data persisted, tx cleared</td>
+</tr>
+<tr>
+<td>ROLLBACK without BEGIN raises error</td>
+<td>PASS</td>
+<td>NoActiveTransactionError raised</td>
+</tr>
+<tr>
+<td>ROLLBACK undoes INSERT</td>
+<td>PASS</td>
+<td>Inserted record removed</td>
+</tr>
+<tr>
+<td>ROLLBACK undoes DELETE</td>
+<td>PASS</td>
+<td>Deleted record restored</td>
+</tr>
+<tr>
+<td>Insert auto-commits by default</td>
+<td>PASS</td>
+<td>No tx needed, data persists</td>
+</tr>
+<tr>
+<td>Schema change auto-commits</td>
+<td>PASS</td>
+<td>create_table outside tx persists</td>
+</tr>
+<tr>
+<td>Crash recovery on startup</td>
+<td>PASS</td>
+<td>Uncommitted inserts rolled back</td>
+</tr>
+<tr>
+<td>Full transaction commit</td>
+<td>PASS</td>
+<td>Multi-insert commit persists</td>
+</tr>
+<tr>
+<td>Full transaction rollback</td>
+<td>PASS</td>
+<td>Multi-insert rollback removes all</td>
+</tr>
+<tr>
+<td>Delete then rollback</td>
+<td>PASS</td>
+<td>Deleted records restored</td>
+</tr>
+<tr>
+<td><strong>Edge Cases</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Rollback empty transaction</td>
+<td>PASS</td>
+<td>No-op rollback handled</td>
+</tr>
+<tr>
+<td>Commit empty transaction</td>
+<td>PASS</td>
+<td>No-op commit handled</td>
+</tr>
+<tr>
+<td>Multiple rollback cycles</td>
+<td>PASS</td>
+<td>5 consecutive begin/rollback cycles</td>
+</tr>
+<tr>
+<td>Partial operations then rollback</td>
+<td>PASS</td>
+<td>Mixed insert/delete rollback correct</td>
+</tr>
+<tr>
+<td>Update no match</td>
+<td>PASS</td>
+<td>0 rows updated, no crash</td>
+</tr>
+<tr>
+<td>Very long char in transaction</td>
+<td>PASS</td>
+<td>1000-char string handled</td>
+</tr>
+<tr>
+<td>Unicode in transaction</td>
+<td>PASS</td>
+<td>Japanese characters handled</td>
+</tr>
+<tr>
+<td><strong>State Manipulation</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>No commit after rollback</td>
+<td>PASS</td>
+<td>NoActiveTransactionError</td>
+</tr>
+<tr>
+<td>No rollback after commit</td>
+<td>PASS</td>
+<td>NoActiveTransactionError</td>
+</tr>
+<tr>
+<td>Insert without begin auto-commits</td>
+<td>PASS</td>
+<td>Data persists immediately</td>
+</tr>
+<tr>
+<td>Delete without begin auto-commits</td>
+<td>PASS</td>
+<td>Data removed immediately</td>
+</tr>
+<tr>
+<td>Update without begin auto-commits</td>
+<td>PASS</td>
+<td>Data updated immediately</td>
+</tr>
+<tr>
+<td><strong>Crash Recovery</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Recovery with no log file</td>
+<td>PASS</td>
+<td>Startup works fine</td>
+</tr>
+<tr>
+<td>Recovery clears log</td>
+<td>PASS</td>
+<td>Log cleared after recovery</td>
+</tr>
+<tr>
+<td>Recovery multiple uncommitted</td>
+<td>PASS</td>
+<td>All uncommitted rolled back</td>
+</tr>
+<tr>
+<td><strong>FK Integration</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FK insert then rollback</td>
+<td>PASS</td>
+<td>Main record undone (known limitation: referenced_by metadata)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="implementation-steps">Implementation Steps</h2>
+<h2 id="bugs-found-fixed">Bugs Found &amp; Fixed</h2>
 <ol>
-<li>Create UndoLogEntry and TransactionLog classes</li>
-<li>Create TransactionManager class</li>
-<li>Integrate into DBMS</li>
-<li>Add error handling</li>
-<li>Update SQL grammar</li>
+<li>
+<p><strong>test_rollback_undoes_delete assertion bug</strong> — The pre-existing test incorrectly asserted <code>table_db.get(b"(2,)") is None</code> after rollback. After rollback, deleted records should be restored, so this was changed to <code>is not None</code>.</p>
+</li>
+<li>
+<p><strong>Windows file locking in fixtures</strong> — <code>shutil.rmtree(DB_DIR)</code> failed on Windows because dbm files remained locked between tests. Fixed by adding <code>gc.collect()</code> before cleanup and using <code>onerror</code> handler.</p>
+</li>
+<li>
+<p><strong>update_query transformer bug</strong> — The assignment was captured at wrong index due to missing SET token offset. Fixed by reading assignment at <code>items[3]</code> and where at <code>items[4]</code>.</p>
+</li>
 </ol>
-<h2 id="diagrams">Diagrams</h2>
-<div class="highlight"><pre><span></span><code>stateDiagram-v2
-    [*] --&gt; AutoCommit
-    AutoCommit --&gt; Active: BEGIN
-    Active --&gt; AutoCommit: COMMIT
-    Active --&gt; AutoCommit: ROLLBACK
-</code></pre></div>
-<h2 id="success-criteria">Success Criteria</h2>
-<ol>
-<li>BEGIN/COMMIT/ROLLBACK work correctly</li>
-<li>Rollback undoes all operations</li>
-<li>Auto-commit works</li>
-<li>Logs cleaned up after commit/rollback</li>
-</ol>
-<h2 id="references">References</h2>
+<h2 id="verified-robust-against">Verified Robust Against</h2>
 <ul>
-<li>IMPLEMENTATION_PLAN.md Phase 3.1</li>
-<li>ARIES transaction recovery algorithm</li>
+<li>Empty transactions (begin-&gt;commit/rollback with no operations)</li>
+<li>Multiple rapid begin/rollback cycles</li>
+<li>Insert/delete/update without explicit transaction (auto-commit)</li>
+<li>Unicode and long string values in transactions</li>
+<li>Crash recovery with no prior log file</li>
+<li>Multiple uncommitted transactions on startup</li>
+<li>Nested BEGIN calls (rejected with error)</li>
+<li>COMMIT/ROLLBACK without active transaction (rejected with error)</li>
+<li>UPDATE with no matching WHERE clause (returns 0 rows, no crash)</li>
+</ul>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li><strong>FK referenced_by metadata</strong>: When a transaction inserts a record with a foreign key and then rolls back, the main record is correctly removed. However, the <code>referenced_by</code> metadata in the parent (referenced) table is updated immediately and is not reverted on rollback. This is acceptable for Phase 3.1 basic transaction support and would require additional side-effect logging for full correctness.</li>
 </ul>
 
 
