@@ -38,3 +38,28 @@ Current is_valid_type() in utils.py has gaps:
 | Breaking existing code | Prevents silent data loss |
 | Performance | Minimal - O(1) per column |
 
+## Diagrams
+
+### INSERT Validation Flow
+
+```mermaid
+flowchart TD
+    A[INSERT Statement] --> B[Parse Columns]
+    B --> C{Count Match?}
+    C -->|No| D[Error: Type Mismatch]
+    C -->|Yes| E[Check NOT NULL]
+    E --> F{All OK?}
+    F -->|No| G[Error: NOT NULL]
+    F -->|Yes| H[Validate Types]
+    H --> I{INT?}
+    I -->|Check| J[is int AND not bool]
+    I -->|CHAR| K[is str AND len <= N]
+    I -->|DATE| L[YYYY-MM-DD + range]
+    J --> M{Valid?}
+    K --> M
+    L --> M
+    M -->|No| N[Error: Type Mismatch]
+    M -->|Yes| O[Insert Record]
+    O --> P[Success]
+```
+

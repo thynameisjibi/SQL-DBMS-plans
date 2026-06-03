@@ -10,7 +10,7 @@ plugins:
 nav:
 - Home: index.md
 - Plans:
-  - (Plans will appear here): plans/.gitkeep
+  - "Issue #2 \u2013 Phase 1.1: Full Type & Constraint Checking": plans/issue-2-plan.md
   - "Issue #4 \u2013 Hash Index Implementation": plans/issue-4-plan.md
 markdown_extensions:
 - pymdownx.superfences
